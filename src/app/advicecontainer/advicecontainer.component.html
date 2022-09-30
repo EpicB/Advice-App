@@ -1,0 +1,26 @@
+<div [ngStyle]="style">
+  <div class="advice-header">
+    <p>ADVICE #{{ adviceDetails.id }}</p>
+  </div>
+  <div class="advice-body">
+    <p>
+      <sup><fa-icon [icon]="faQuoteLeft" size="xs"></fa-icon></sup
+      >{{ adviceDetails.advice
+      }}<sup><fa-icon [icon]="faQuoteRight" size="xs"></fa-icon></sup>
+    </p>
+  </div>
+  <div>
+    <img
+      src="../../assets/advice-generator-app-main/images/pattern-divider-desktop.svg"
+    />
+  </div>
+</div>
+<div [ngStyle]="styleButtonDiv">
+  <button
+    (click)="GetAdvice()"
+    [ngStyle]="styleButton"
+    class="hovereffectbutton"
+  >
+    <img src="../../assets/advice-generator-app-main/images/icon-dice.svg" />
+  </button>
+</div>

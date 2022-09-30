@@ -1,0 +1,14 @@
+.advice-header{
+    font-size: 17px;
+    color:#4ACE92;
+    letter-spacing: 5px;
+}
+.advice-body{
+    font-size:28px;  
+    width:400px;
+    color:#CEE2E9;
+}
+.hovereffectbutton{
+    box-shadow: 0 0 10px #53FFA9;
+    cursor: pointer;
+}
