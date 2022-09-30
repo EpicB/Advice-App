@@ -7,6 +7,7 @@
     font-size:28px;  
     width:400px;
     color:#CEE2E9;
+    overflow-wrap: break-word;
 }
 .hovereffectbutton{
     box-shadow: 0 0 10px #53FFA9;

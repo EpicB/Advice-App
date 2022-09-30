@@ -11,8 +11,8 @@ import { take } from 'rxjs/operators';
 })
 export class AdvicecontainerComponent implements OnInit {
   @Input() type = 'px';
-  @Input() width = 600;
-  @Input() height = 400;
+  @Input() width = 30;
+  @Input() height = 40;
   bottom = 25;
   faQuoteLeft = faQuoteLeft;
   faQuoteRight = faQuoteRight;
@@ -20,13 +20,13 @@ export class AdvicecontainerComponent implements OnInit {
   style!: object;
   styleButton!: object;
   styleButtonDiv!: object;
-
+  windowWidth = window.innerWidth;
   constructor(private _adviceService: AdvicecontainerService) {}
 
   ngOnInit(): void {
     this.style = {
-      width: this.width + this.type,
-      height: this.height + this.type,
+      width: this.width + 'vw',
+      height: this.height + 'vh',
       color: 'white',
       display: 'flex',
       'flex-direction': 'column',
@@ -36,6 +36,7 @@ export class AdvicecontainerComponent implements OnInit {
       'font-weight': 800,
       'background-color': '#313A49',
       'border-radius': '20px',
+      overflow: 'hidden',
     };
     this.styleButton = {
       width: 50 + this.type,
@@ -48,9 +49,10 @@ export class AdvicecontainerComponent implements OnInit {
     this.styleButtonDiv = {
       position: 'relative',
       bottom: this.bottom + this.type,
-      left: this.width / 2 - this.bottom + this.type,
+      left:
+        (this.windowWidth * (this.width / 100)) / 2 - this.bottom + this.type,
     };
-
+    window.onresize = this.windowResize;
     this.GetAdvice();
   }
   GetAdvice() {
@@ -60,5 +62,8 @@ export class AdvicecontainerComponent implements OnInit {
       .subscribe((data: any) => {
         this.adviceDetails = data.slip;
       });
+  }
+  windowResize() {
+    this.windowWidth = window.innerWidth;
   }
 }
